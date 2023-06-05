@@ -1,0 +1,37 @@
+version: '3'
+services:
+  php-apache:
+    build: ./
+    container_name: catio.info.www
+    ports:
+      - 8085:80
+    links:
+      - 'db'
+    restart: unless-stopped
+
+  db:
+    image: linuxserver/mariadb
+    container_name: catio.info.db
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - MYSQL_ROOT_PASSWORD=5geH9wV4jRePYcVY
+      - TZ=Pacific/Auckland
+      - MYSQL_DATABASE=catio #optional
+      - MYSQL_USER=dbuser #optional
+      - MYSQL_PASSWORD=MmN8XWQnfXHk6CvvY #optional
+      - REMOTE_SQL=http://URL1/your.sql,https://URL2/your.sql #optional
+    volumes:
+      - db:/config
+      - ./mariadb.cnf:/etc/mysql/mariadb.cnf
+    ports:
+      - 3310:3306
+    restart: unless-stopped
+    
+volumes:
+  db:
+    driver: local
+    driver_opts:
+      type: "nfs"
+      o: "addr=192.168.1.48,nolock,soft,rw"
+      device: ":/catio_info_db"

@@ -1,0 +1,8 @@
+version: '3'
+services:
+  php-apache:
+    build: ./
+    container_name: catio.info.www
+    ports:
+      - 8085:80
+    restart: unless-stopped
