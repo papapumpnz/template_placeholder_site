@@ -42,12 +42,19 @@
    *
   ********************************************************** **/
   $config['email_contacts'] = [
+/*
+    The email listed here MUST match the email username in the SENDERS section below otherwise we get
+    errors in POSTFIX such as:
+
+    Jun 06 07:59:02 mail postfix/smtpd[490]: NOQUEUE: reject: RCPT from unknown[192.168.1.1]: 553 5.7.1 <contact@contactnow.link>: Sender address rejected: not owned by user noreply@contactnow.link; from=<contact@contactnow.link> to=<contact@contactnow.link> proto=ESMTP helo=<contactnow.link>
+
+*/
 
     [  /* [WILDCARD] OWNER / CEO / etc */
       'enabled'       => true,
       'department'    => '*',
       'name'          => 'Contact Department',
-      'email'         => 'noreply@contactnow.link'
+      'email'         => 'noreply@some.smtp.address'
     ],
 
 
@@ -113,8 +120,8 @@
         'host'      => 'mail.servicepod.net',
         'port'      => 587,             // 25, 465 or 587
         'type'      => 'tls',           // secure type: tls or ssl (ssl is deprecated)
-        'user'      => 'noreply@contactnow.link',
-        'pass'      => '3CuBANW05ULrIjM014ql',
+        'user'      => 'noreply@some.smtp.address',
+        'pass'      => 'CHANGE ME!',
       ],
 
 
