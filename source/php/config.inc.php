@@ -6,8 +6,8 @@
    *  documentation/php-forms.html
    *
   ********************************************************** **/
-  $display_errors = false;    // see init.php
-  @date_default_timezone_set('Europe/Bucharest');
+  $display_errors = true ;    // see init.php
+  @date_default_timezone_set('Pacific/Auckland');
   @ini_set('memory_limit', '128M');
 
 
@@ -46,8 +46,8 @@
     [  /* [WILDCARD] OWNER / CEO / etc */
       'enabled'       => true,
       'department'    => '*',
-      'name'          => 'John Doe',
-      'email'         => 'john.doe@mydomain.com'
+      'name'          => 'Contact Department',
+      'email'         => 'noreply@contactnow.link'
     ],
 
 
@@ -107,14 +107,14 @@
 
       */
       [ 
-        'name'      => 'My Hosting',        // Informative only
+        'name'      => 'Servicepod',        // Informative only
         'enabled'   => true,            // true|false
 
-        'host'      => 'my-smtp-from-cpanel.com',
+        'host'      => 'mail.servicepod.net',
         'port'      => 587,             // 25, 465 or 587
         'type'      => 'tls',           // secure type: tls or ssl (ssl is deprecated)
-        'user'      => 'noreply@mydomain.com',
-        'pass'      => 'noreply_email_password',
+        'user'      => 'noreply@contactnow.link',
+        'pass'      => '3CuBANW05ULrIjM014ql',
       ],
 
 

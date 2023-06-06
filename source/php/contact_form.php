@@ -114,7 +114,7 @@
 	$return = SOW_Smtp::render(array(
 		'email_subject'				=> $array['contact_subject'],								// Required
 		'email_to'					=> $array['email_to'], 										// Required, array format
-		'email_from'				=> $array['contact_email'], 								// Required
+		'email_from'				=> $array['email_to'][0]['email'], 								// Required
 		'email_from_name'			=> $array['contact_name'], 									// Optional
 		'email_reply_to'			=> $array['contact_email'],									// Optional | Recommended
 		'email_body'				=> buildEmailBody($array), 									// Well...
